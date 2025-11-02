@@ -36,11 +36,58 @@
           </div>
       </div>
     </div>
+    <div class="col-10 m-auto html-element-for-more-explaination-about-developper-en-experiencies">
+      <h3>A propos</h3>
+      <p class="text-light">Aujourd’hui développeur Autodidacte, j’ai consacré la pupart de mon temps en tant que développeur Web, avec les modernes comme Flask, Fast API, Node js, Vuejs, etc....  Pendant ces trois ans, j’ai acquis des compétences solides dans le développement informatique y compris d’autres domaines en dehors du développement web.  Etant un développeur d’interface graphique, je peu aussi travailler avec les outils de design comme Adobe XD ou Figma</p>
+    </div>
+    <div class="col-10 m-auto elment-to-contain-list-of-finished-project">
+       <h3>Mes projets</h3>
+       <div class="col-lg-8 col-10 m-auto grid-container-to-manage-correctly-all-element-of-paroject-list">
+          <div class="col-11 d-flex m-auto gap-3">
+            <div class="border rounded col-lg-5 col-6 d-flex">
+              <img class="col-5" src="../assets/vue-transparent-removebg-preview.png" alt="">
+              <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
+                <h4 style="margin: 0;" class="col-12 ">Mon Portfolio</h4>
+                <p style="margin: 0;" class="">Vue.js</p>
+              </div>
+            </div>
+            <div class="border rounded col-5 d-flex">
+              <img class="col-4 p-3" src="../assets/nuxt-seeklogo.png" alt="">
+              <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
+                <h4 style="margin: 0;" class="col-12 ">Presonnel</h4>
+                <p style="margin: 0;" class="">Nuxt.js | Node.js</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-11 d-flex m-auto gap-3 pt-3 ">
+            <div class="border rounded col-5 d-flex">
+              <img class="col-3 p-3" src="../assets/62a4bbf6fdee15d2905007bb.png" alt="">
+              <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
+                <h4 style="margin: 0;" class="col-12 ">Task Manager</h4>
+                <p style="margin: 0;" class="">Flask | Jquery</p>
+              </div>
+            </div>
+            <div class="border rounded col-5 d-flex">
+              <img class="col-3 p-3" src="../assets/62a4bbf6fdee15d2905007bb.png" alt="">
+              <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
+                <h4 style="margin: 0;" class="col-12 ">RestFull API</h4>
+                <p style="margin: 0;" class="">Flask | Vue.js</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12"></div>
+       </div>
+    </div>
   </section>
 </template>
 
 <style scoped>
+  h3 {
+    font-weight: bold;
+    color: white !important;
+  }
   section.row .container-some-information-like-na-bar {
+    background-image: url("../assets/Desktop.png");
     height: 100vh;
   }
   section.row .container-some-information-like-na-bar .element-to-display-some-element-at-right-side-of-the-screen {
@@ -73,5 +120,9 @@
     }
         section.row .container-some-information-like-na-bar .container-to-centering-something-at-screen .element-to-contain-developper-personnal-information {
           color: #fff;
-        }
+    }
+    .row .html-element-for-more-explaination-about-developper-en-experiencies {
+      display: block;
+      padding-bottom: 30vh;
+    }
 </style>
