@@ -40,10 +40,10 @@
       <h3>A propos</h3>
       <p class="text-light">Aujourd’hui développeur Autodidacte, j’ai consacré la pupart de mon temps en tant que développeur Web, avec les modernes comme Flask, Fast API, Node js, Vuejs, etc....  Pendant ces trois ans, j’ai acquis des compétences solides dans le développement informatique y compris d’autres domaines en dehors du développement web.  Etant un développeur d’interface graphique, je peu aussi travailler avec les outils de design comme Adobe XD ou Figma</p>
     </div>
-    <div class="col-10 m-auto elment-to-contain-list-of-finished-project">
+    <div class="col-10 m-auto element-to-contain-list-of-finished-project">
        <h3>Mes projets</h3>
-       <div class="col-lg-8 col-10 m-auto grid-container-to-manage-correctly-all-element-of-paroject-list">
-          <div class="col-11 d-flex m-auto gap-3">
+       <div class="col-lg-8 col-10 m-auto grid-container-to-manage-correctly-all-element-of-paroject-list d-flex flex-column gap-3">
+          <div class="col-12 d-flex m-auto gap-3">
             <div class="border rounded col-lg-5 col-6 d-flex">
               <img class="col-5" src="../assets/vue-transparent-removebg-preview.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
@@ -51,32 +51,52 @@
                 <p style="margin: 0;" class="">Vue.js</p>
               </div>
             </div>
-            <div class="border rounded col-5 d-flex">
+            <div class="border rounded  col-lg-5 col-6 d-flex">
               <img class="col-4 p-3" src="../assets/nuxt-seeklogo.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
-                <h4 style="margin: 0;" class="col-12 ">Presonnel</h4>
+                <h4 style="margin: 0;" class="col-12 ">Personnel</h4>
                 <p style="margin: 0;" class="">Nuxt.js | Node.js</p>
               </div>
             </div>
           </div>
-          <div class="col-11 d-flex m-auto gap-3 pt-3 ">
-            <div class="border rounded col-5 d-flex">
-              <img class="col-3 p-3" src="../assets/62a4bbf6fdee15d2905007bb.png" alt="">
+          <div class="col-12 d-flex m-auto gap-3">
+            <div class="border rounded  col-lg-5 col-6 d-flex">
+              <img class="col-4 p-3" src="../assets/62a4bbf6fdee15d2905007bb.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
                 <h4 style="margin: 0;" class="col-12 ">Task Manager</h4>
                 <p style="margin: 0;" class="">Flask | Jquery</p>
               </div>
             </div>
-            <div class="border rounded col-5 d-flex">
-              <img class="col-3 p-3" src="../assets/62a4bbf6fdee15d2905007bb.png" alt="">
+            <div class="border rounded  col-lg-5 col-6 d-flex">
+              <img class="col-4 p-3" src="../assets/62a4bbf6fdee15d2905007bb.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
-                <h4 style="margin: 0;" class="col-12 ">RestFull API</h4>
+                <h4 style="margin: 0;" class="col-12 ">Full-Stack App</h4>
                 <p style="margin: 0;" class="">Flask | Vue.js</p>
               </div>
             </div>
           </div>
-          <div class="col-12"></div>
        </div>
+    </div>
+    <div class="col-10 element-to-list-different-way-to-contact m-auto">
+      <h3>Mes Contacts</h3>
+      <div style="cursor: pointer;" class="col-12 d-flex justify-content-around element-to-contain-some-mode-of-contact gap-2">
+        <div style="height: 10vh;" class="col-3 border rounded d-flex justify-content-start gap-3">
+          <img class="p-2" src="../assets/github-mark-white.png" alt="">
+          <h3 class="align-self-center">Github</h3>
+        </div>
+        <div style="height: 10vh;" class="col-3 border rounded d-flex justify-content-start gap-3">
+          <img class="p-2" src="../assets/gmail_new_logo_icon_159149.png" alt="">
+          <h3 class="align-self-center">Gmail</h3>
+        </div>
+        <div style="height: 10vh;" class="col-3 border rounded d-flex justify-content-start gap-3">
+          <img class="p-2" src="../assets/logo-linkedin-icon-4096.png" alt="">
+          <h3 class="align-self-center">Linkedin</h3>
+        </div>
+        <div style="height: 10vh;" class="col-3 border rounded d-flex justify-content-start gap-3">
+          <img class="p-2 rounded" src="../assets/icone-de-telephone-recto.png" alt="">
+          <h3 class="align-self-center"> Whatsapp</h3>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -88,6 +108,8 @@
   }
   section.row .container-some-information-like-na-bar {
     background-image: url("../assets/Desktop.png");
+    background-attachment: scroll;
+    background-size: cover;
     height: 100vh;
   }
   section.row .container-some-information-like-na-bar .element-to-display-some-element-at-right-side-of-the-screen {
@@ -123,6 +145,9 @@
     }
     .row .html-element-for-more-explaination-about-developper-en-experiencies {
       display: block;
+      padding-bottom: 30vh;
+    }
+    .row .element-to-contain-list-of-finished-project {
       padding-bottom: 30vh;
     }
 </style>
