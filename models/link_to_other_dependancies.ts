@@ -36,14 +36,6 @@ export function imagesLoader(list:string[],final_result:Function) {
         final_result(false)
     })
 }
-export function sleep(int:number):Promise<Boolean> {
-    return new Promise((error,resolve) => {
-        setTimeout(() => {
-            resolve(int)
-        }, int);
-    })
-
-}
 export class ScrollIntoView {
     static project(htmlElement:HTMLElement) {
         htmlElement.querySelector(".element-to-contain-list-of-finished-project")?.scrollIntoView({
