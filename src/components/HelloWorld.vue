@@ -32,8 +32,8 @@ onMounted(() => {
   const interval = setInterval(() => {
     if(i == value_to_insert.length - 1) clearInterval(interval)
     else {
-      i += 1
       value_in_ref.value += value_to_insert[i]
+      i += 1
     }
   }, 50); 
 })
