@@ -76,7 +76,7 @@ onMounted(() => {
     </div>
     <div class="col-10 m-auto html-element-for-more-explaination-about-developper-en-experiencies">
       <h3>A propos</h3>
-      <p class="text-light">Aujourd’hui développeur Autodidacte, j’ai consacré la pupart de mon temps en tant que développeur Web, avec les modernes comme Flask, Fast API, Node js, Vuejs, etc....  Pendant ces trois ans, j’ai acquis des compétences solides dans le développement informatique y compris d’autres domaines en dehors du développement web.  Etant un développeur d’interface graphique, je peu aussi travailler avec les outils de design comme Adobe XD ou Figma</p>
+      <p class="text-light">Aujourd’hui développeur Autodidacte, j’ai consacré la pupart de mon temps en tant que développeur Web, avec les technologies modernes comme Flask, Fast API, Node js, Vuejs, etc....  Pendant ces trois ans, j’ai acquis des compétences solides dans le développement informatique y compris d’autres domaines en dehors du développement web.  Etant un développeur d’interface graphique, je peux aussi travailler avec les outils de design comme Adobe XD ou Figma</p>
     </div>
     <div class="col-10 m-auto element-to-contain-list-of-finished-project">
        <h3>Mes projets</h3>
