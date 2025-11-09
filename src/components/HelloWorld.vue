@@ -18,7 +18,7 @@ import { imagesLoader } from "../../models/link_to_other_dependancies"
 }
 //Function for liading a lot images
 const value_in_ref = ref("")
-const virtual_dom = useTemplateRef("virtual_dom").value as HTMLElement
+const virtual_dom = ref(null)
 const value_to_insert = "Passionné par le codage, je peux effectuer d’innombrable application avec les technologies Javascript et Python, etc..."
 const isLoading:Ref<0 | 1> = ref(0)
 const image_path = ["../assets/vue-transparent-removebg-preview.png","../assets/nuxt-seeklogo.png","../assets/62a4bbf6fdee15d2905007bb.png","../assets/github-mark-white.png","../assets/gmail_new_logo_icon_159149.png","../assets/logo-linkedin-icon-4096.png","../assets/icone-de-telephone-recto.png"]
