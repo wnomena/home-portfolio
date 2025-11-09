@@ -36,3 +36,37 @@ export function imagesLoader(list:string[],final_result:Function) {
         final_result(false)
     })
 }
+export function sleep(int:number):Promise<Boolean> {
+    return new Promise((error,resolve) => {
+        setTimeout(() => {
+            resolve(int)
+        }, int);
+    })
+
+}
+export class ScrollIntoView {
+    static project(htmlElement:HTMLElement) {
+        htmlElement.querySelector(".element-to-contain-list-of-finished-project")?.scrollIntoView({
+            behavior: "smooth",
+            block: "end"
+        })
+    }
+    static contact(htmlElement:HTMLElement) {
+        htmlElement.querySelector(".element-to-list-different-way-to-contact")?.scrollIntoView({
+            behavior: "smooth",
+            block: "end"
+        })
+    }
+    static about(htmlElement:HTMLElement) {
+        htmlElement.querySelector(".html-element-for-more-explaination-about-developper-en-experiencies")?.scrollIntoView({
+            behavior: "smooth",
+            block: "end"
+        })
+    }
+    static home(htmlElement:HTMLElement) {
+        htmlElement.querySelector(".container-some-information-like-na-bar")?.scrollIntoView({
+            behavior: "smooth",
+            block: "end"
+        })
+    }
+}

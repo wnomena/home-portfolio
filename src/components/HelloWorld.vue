@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { onMounted, ref, type Ref } from "vue"
-import {linked,Mail} from "../../models/link_to_other_dependancies"
+import { onMounted, ref, useTemplateRef, type Ref } from "vue"
+import {linked,Mail, ScrollIntoView} from "../../models/link_to_other_dependancies"
 import { imagesLoader } from "../../models/link_to_other_dependancies"
   class Linked {
     static github() {
@@ -17,6 +17,9 @@ import { imagesLoader } from "../../models/link_to_other_dependancies"
     }
 }
 //Function for liading a lot images
+const value_in_ref = ref("")
+const virtual_dom = useTemplateRef("virtual_dom").value as HTMLElement
+const value_to_insert = "Passionné par le codage, je peux effectuer d’innombrable application avec les technologies Javascript et Python, etc..."
 const isLoading:Ref<0 | 1> = ref(0)
 const image_path = ["../assets/vue-transparent-removebg-preview.png","../assets/nuxt-seeklogo.png","../assets/62a4bbf6fdee15d2905007bb.png","../assets/github-mark-white.png","../assets/gmail_new_logo_icon_159149.png","../assets/logo-linkedin-icon-4096.png","../assets/icone-de-telephone-recto.png"]
 onMounted(() => {
@@ -25,39 +28,47 @@ onMounted(() => {
         isLoading.value = 1
       } else isLoading.value = 0
   })
+  let i = 0
+  const interval = setInterval(() => {
+    if(i == value_to_insert.length - 1) clearInterval(interval)
+    else {
+      i += 1
+      value_in_ref.value += value_to_insert[i]
+    }
+  }, 50); 
 })
+//Script for dynamic value-of-p
 </script>
-
 <template>
-  <section v-if="isLoading" class="row">
+  <section ref="virtual_dom" v-if="isLoading" class="row">
     <div class="col-lg-12 container-some-information-like-na-bar">
       <div class="col-12 d-flex justify-content-end element-to-display-some-element-at-right-side-of-the-screen">
         <div class="col-7  container-to-put-gap-for-your-application d-flex">
-          <div class="col-3 d-flex flex-wrap justify-content-center link-for-home">
+          <div v-on:click="ScrollIntoView.home(virtual_dom)" class="col-3 d-flex flex-wrap justify-content-center link-for-home">
             <div class="home-div col-11">Acceuil</div>
           </div>
-                    <div class="col-3 d-flex flex-wrap justify-content-center link-for-about">
+                    <div v-on:click="ScrollIntoView.about(virtual_dom)" class="col-3 d-flex flex-wrap justify-content-center link-for-about">
             <div class="home-div col-11">A propos</div>
           </div>
-                    <div class="col-3 d-flex flex-wrap justify-content-center link-for-all-projets">
+                    <div v-on:click="ScrollIntoView.project(virtual_dom)" class="col-3 d-flex flex-wrap justify-content-center link-for-all-projets">
             <div class="home-div col-11">Projets</div>
           </div>
-                    <div class="col-3 d-flex flex-wrap justify-content-center link-for-contact">
+                    <div v-on:click="ScrollIntoView.contact(virtual_dom)" class="col-3 d-flex flex-wrap justify-content-center link-for-contact">
             <div class="home-div col-11">Contact</div>
           </div>
         </div>
       </div>
       <h2 style="font-family: 'Inter',serif;" class="ms-5 mt-5 fw-bold text-light">Sedraniaina</h2>
       <div class="container-to-centering-something-at-screen col-12">
-          <div class="col-lg-5 col-md-7 col-11 ms-lg-5 ms-md-4 ms-2 element-to-contain-developper-personnal-information ">
+          <div ref="pointer-for-js" class="col-lg-5 col-md-7 col-11 ms-lg-5 ms-md-4 ms-2 element-to-contain-developper-personnal-information ">
               <div class="col-10 m-auto">
                 <h3>Je suis</h3>
                 <h4>Sedraniaina Nomenjanahary</h4>
                 <h5 style="color: aqua;">Développeur Web</h5>
-                <p>Passionné par le codage, je peux effectuer d’innombrable application avec les technologies Javascript et Python, etc...</p>
+                <p class="dynamic-value-from-js">{{ value_in_ref }}</p>
                 <div class="col-11 the-easy-way-to-put-some-child-to-inline d-flex gap-2">
-                    <div style="background: linear-gradient(90deg,#0C9ADC,#0C9ADC,#0D75AA,#0477AD); font-family: 'Inter';" class="fw-bold btn-for-going-to-projects rounded p-2 col-lg-4 col-md-5 col-7 text-center">Mes Projets</div>
-                    <div style="background: linear-gradient(90deg,#033780,#0C9ADC,#0D75AA,#0477AD); font-family: 'Inter';" class="fw-bold btn-for-going-to-projects rounded p-2 col-lg-4 col-md-5 col-7 text-center">Me contacter</div>
+                    <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" style="cursor: pointer ;background: linear-gradient(90deg,#0C9ADC,#0C9ADC,#0D75AA,#0477AD); font-family: 'Inter';" v-on:click="ScrollIntoView.project(virtual_dom)" class="fw-bold btn-for-going-to-projects rounded p-2 col-lg-4 col-md-5 col-7 text-center">Mes Projets</div>
+                    <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" style=" cursor: pointer;background: linear-gradient(90deg,#033780,#0C9ADC,#0D75AA,#0477AD); font-family: 'Inter';" v-on:click="ScrollIntoView.contact(virtual_dom)" class="fw-bold btn-for-going-to-projects rounded p-2 col-lg-4 col-md-5 col-7 text-center">Me contacter</div>
                 </div>
               </div>
           </div>
@@ -71,14 +82,14 @@ onMounted(() => {
        <h3>Mes projets</h3>
        <div class="col-lg-8 col-10 m-auto grid-container-to-manage-correctly-all-element-of-paroject-list d-flex flex-column gap-3">
           <div class="col-12 d-flex flex-wrap m-auto gap-3">
-            <div class="border rounded col-lg-5 col-md-5 col-12 d-flex">
+            <div data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000" class="border rounded col-lg-5 col-md-5 col-12 d-flex">
               <img class="col-5" src="../assets/vue-transparent-removebg-preview.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
                 <h4 style="margin: 0;" class="col-12 ">Mon Portfolio</h4>
                 <p style="margin: 0;" class="">Vue.js</p>
               </div>
             </div>
-            <div class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
+            <div data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000" class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
               <img class="col-4 p-3" src="../assets/nuxt-seeklogo.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
                 <h4 style="margin: 0;" class="col-12 ">Personnel</h4>
@@ -87,14 +98,14 @@ onMounted(() => {
             </div>
           </div>
           <div class="col-12 d-flex flex-wrap m-auto gap-3">
-            <div class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
+            <div data-aos="fade-right" data-aos-delay="700" data-aos-duration="1000" class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
               <img class="col-4 p-3" src="../assets/62a4bbf6fdee15d2905007bb.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
                 <h4 style="margin: 0;" class="col-12 ">Task Manager</h4>
                 <p style="margin: 0;" class="">Flask | Jquery</p>
               </div>
             </div>
-            <div class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
+            <div data-aos="fade-left" data-aos-delay="900" data-aos-duration="1000" class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
               <img class="col-4 p-3" src="../assets/62a4bbf6fdee15d2905007bb.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
                 <h4 style="margin: 0;" class="col-12 ">Full-Stack App</h4>
@@ -104,22 +115,22 @@ onMounted(() => {
           </div>
        </div>
     </div>
-    <div class="col-10 element-to-list-different-way-to-contact m-auto pb-3">
+    <div class="col-10 element-to-list-different-way-to-contact m-auto pb-5">
       <h3>Mes Contacts</h3>
       <div style="cursor: pointer;" class="col-12 d-flex justify-content-around element-to-contain-some-mode-of-contact gap-2">
-        <div v-on:click="Linked.github()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
+        <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" v-on:click="Linked.github()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
           <img class="p-2" src="../assets/github-mark-white.png" alt="">
           <h3 class="align-self-center d-lg-block d-md-block d-none">Github</h3>
         </div>
-        <div v-on:click="Linked.gmail()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
+        <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" v-on:click="Linked.gmail()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
           <img class="p-2" src="../assets/gmail_new_logo_icon_159149.png" alt="">
           <h3 class="align-self-center d-lg-block d-md-block d-none">Gmail</h3>
         </div>
-        <div v-on:click="Linked.linkedin()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
+        <div data-aos="fade-up" data-aos-delay="700" data-aos-duration="1000" v-on:click="Linked.linkedin()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
           <img class="p-2" src="../assets/logo-linkedin-icon-4096.png" alt="">
           <h3 class="align-self-center d-lg-block d-md-block d-none">Linkedin</h3>
         </div>
-        <div v-on:click="Linked.whatsapp()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
+        <div data-aos="fade-up" data-aos-delay="900" data-aos-duration="1000" v-on:click="Linked.whatsapp()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
           <img class="p-2 rounded" src="../assets/icone-de-telephone-recto.png" alt="">
           <h3 class="align-self-center d-lg-block d-md-block d-none"> Whatsapp</h3>
         </div>
