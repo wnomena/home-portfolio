@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { onMounted, ref, type Ref } from "vue"
 import {linked,Mail} from "../../models/link_to_other_dependancies"
+import { imagesLoader } from "../../models/link_to_other_dependancies"
   class Linked {
     static github() {
         linked("https://github.com/wnomena")
@@ -14,10 +16,20 @@ import {linked,Mail} from "../../models/link_to_other_dependancies"
       linked("https://wa.me/261384840319")
     }
 }
+//Function for liading a lot images
+const isLoading:Ref<0 | 1> = ref(0)
+const image_path = ["../assets/vue-transparent-removebg-preview.png","../assets/nuxt-seeklogo.png","../assets/62a4bbf6fdee15d2905007bb.png","../assets/github-mark-white.png","../assets/gmail_new_logo_icon_159149.png","../assets/logo-linkedin-icon-4096.png","../assets/icone-de-telephone-recto.png"]
+onMounted(() => {
+  imagesLoader([...image_path],function(value:Boolean) {
+      if(value) {
+        isLoading.value = 1
+      } else isLoading.value = 0
+  })
+})
 </script>
 
 <template>
-  <section class="row">
+  <section v-if="isLoading" class="row">
     <div class="col-lg-12 container-some-information-like-na-bar">
       <div class="col-12 d-flex justify-content-end element-to-display-some-element-at-right-side-of-the-screen">
         <div class="col-7  container-to-put-gap-for-your-application d-flex">
@@ -70,7 +82,7 @@ import {linked,Mail} from "../../models/link_to_other_dependancies"
               <img class="col-4 p-3" src="../assets/nuxt-seeklogo.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
                 <h4 style="margin: 0;" class="col-12 ">Personnel</h4>
-                <p style="margin: 0;" class="">Nuxt.js | Node.js</p>
+                <p style="margin: 0;" class="">Nuxt.js | Node.js</p>  
               </div>
             </div>
           </div>
