@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, useTemplateRef, type Ref } from "vue"
+import { onMounted, ref, type Ref } from "vue"
 import {linked,Mail, ScrollIntoView} from "../../models/link_to_other_dependancies"
 import { imagesLoader } from "../../models/link_to_other_dependancies"
   class Linked {
